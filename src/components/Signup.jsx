@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchRoles, signupUser } from "../services/Api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import '../styles/pages/Auth.css';
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -30,57 +31,80 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Signup</h2>
-      <form onSubmit={handleSignup}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <h1>Create Account</h1>
+          <p>Join Tractor Setu and start farming smarter</p>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        
+        <form className="auth-form" onSubmit={handleSignup}>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-input"
+              placeholder=" "
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <label className="form-label">Username</label>
+          </div>
+
+          <div className="form-group">
+            <input
+              type="email"
+              className="form-input"
+              placeholder=" "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <label className="form-label">Email</label>
+          </div>
+
+          <div className="form-group">
+            <input
+              type="password"
+              className="form-input"
+              placeholder=" "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label className="form-label">Password</label>
+          </div>
+
+          <div className="form-group">
+            <select
+              className="form-input"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+            >
+              <option value="">Select Role</option>
+              {roles.map((r) => (
+                <option key={r.id} value={r.roleName}>
+                  {r.roleName}
+                </option>
+              ))}
+            </select>
+            <label className="form-label">Role</label>
+          </div>
+
+          <button type="submit" className="auth-button">
+            Sign Up
+          </button>
+        </form>
+
+        <div className="auth-divider">
+          <span>or</span>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        
+        <div className="auth-links">
+          <p>Already have an account? <Link to="/login">Login</Link></p>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Role</label>
-          <select
-            className="form-select"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            required
-          >
-            <option value="">Select Role</option>
-            {roles.map((r) => (
-              <option key={r.id} value={r.roleName}>
-                {r.roleName}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button type="submit" className="btn btn-primary">Signup</button>
-      </form>
+      </div>
     </div>
   );
 };

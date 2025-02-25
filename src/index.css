@@ -1,0 +1,115 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Updated farming-inspired color palette */
+  --primary-color: #2F5A1E;     /* Deep Forest Green */
+  --secondary-color: #8B7355;   /* Earth Brown */
+  --accent-color: #DAA520;      /* Harvest Gold */
+  --success-color: #558B2F;     /* Fresh Growth Green */
+  --error-color: #C62828;       /* Alert Red */
+  
+  /* Background Colors */
+  --bg-primary: #FAFAF5;        /* Off White */
+  --bg-secondary: #F0F4EC;      /* Light Sage */
+  
+  /* Text Colors */
+  --text-primary: #2C3E2D;      /* Dark Green */
+  --text-secondary: #5F6F60;    /* Muted Green */
+  --text-light: #FFFFFF;
+  
+  /* Elevation */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(45, 78, 33, 0.1);
+  --shadow-lg: 0 10px 15px rgba(45, 78, 33, 0.1);
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  
+  /* Transitions */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Enhanced Button Styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast), 
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background-color: #1F3D14;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background-color: #6F5B44;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+} 

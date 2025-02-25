@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { loginUser } from "../services/Api";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import '../styles/pages/Auth.css';
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -20,31 +22,50 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <h1>Welcome Back</h1>
+          <p>Login to access your account</p>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        
+        <form className="auth-form" onSubmit={handleLogin}>
+          <div className="form-group">
+            <input 
+              type="text" 
+              className="form-input" 
+              id="username" 
+              placeholder=" "
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required 
+            />
+            <label htmlFor="username" className="form-label">Username</label>
+          </div>
+          
+          <div className="form-group">
+            <input 
+              type="password" 
+              className="form-input" 
+              id="password" 
+              placeholder=" "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
+            <label htmlFor="password" className="form-label">Password</label>
+          </div>
+          
+          <button type="submit" className="auth-button">
+            Login
+          </button>
+        </form>
+        
+        <div className="auth-links">
+          <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+          <Link to="/forgot-password">Forgot Password?</Link>
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
-      </form>
+      </div>
     </div>
   );
 };
