@@ -1,51 +1,171 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Updated farming-inspired color palette */
-  --primary-color: #2F5A1E;     /* Deep Forest Green */
-  --secondary-color: #8B7355;   /* Earth Brown */
-  --accent-color: #DAA520;      /* Harvest Gold */
-  --success-color: #558B2F;     /* Fresh Growth Green */
-  --error-color: #C62828;       /* Alert Red */
-  
-  /* Background Colors */
-  --bg-primary: #FAFAF5;        /* Off White */
-  --bg-secondary: #F0F4EC;      /* Light Sage */
-  
-  /* Text Colors */
-  --text-primary: #2C3E2D;      /* Dark Green */
-  --text-secondary: #5F6F60;    /* Muted Green */
-  --text-light: #FFFFFF;
-  
-  /* Elevation */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(45, 78, 33, 0.1);
-  --shadow-lg: 0 10px 15px rgba(45, 78, 33, 0.1);
-  
+  /* Nature-inspired Color Palette */
+  --primary-green: #2d5a27; /* Deep Forest Green */
+  --secondary-green: #4a7c3c; /* Leaf Green */
+  --dark-green: #1b371a; /* Dark Forest */
+  --light-green: #c8e6c9; /* Soft Leaf */
+  --accent-green: #8bc34a; /* Fresh Spring */
+
+  /* Earth Tones */
+  --earth-brown: #5d4037; /* Rich Soil */
+  --light-brown: #d7ccc8; /* Sandy Soil */
+  --dark-brown: #3e2723; /* Deep Earth */
+  --wheat-color: #f9c74f; /* Ripe Wheat */
+  --clay-color: #bc6c25; /* Terra Cotta */
+
+  /* Natural Accents */
+  --sky-blue: #90caf9; /* Clear Sky */
+  --sunset-orange: #ffb74d; /* Harvest Sunset */
+  --white: #ffffff;
+  --cream: #fff8e1; /* Soft Cream */
+
+  /* Gray Scale (Earth-tinted) */
+  --gray-50: #fafaf8;
+  --gray-100: #f5f5f2;
+  --gray-200: #e8e8e5;
+  --gray-300: #ddddd7;
+  --gray-400: #c4c4bc;
+  --gray-500: #a3a39b;
+
+  /* Status Colors */
+  --success: #43a047; /* Growth Green */
+  --error: #e53935; /* Warning Red */
+  --warning: #ff8f00; /* Caution Amber */
+  --info: #1976d2; /* Water Blue */
+
+  /* Font Settings */
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Poppins", sans-serif;
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+
+  /* Spacing */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+
   /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
   /* Transitions */
-  --transition-fast: 200ms ease;
-  --transition-normal: 300ms ease;
-  --transition-slow: 500ms ease;
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
 }
 
-/* Base Styles */
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.6;
+  font-family: var(--font-primary);
+  background-color: var(--cream);
+  color: var(--dark-brown);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 28h-6v6h6v-6zm-18-6h6v-6h-6v6zm12 0h6v-6h-6v6zm0 12h6v-6h-6v6zm-12 0h6v-6h-6v6zm0 12h6v-6h-6v6zm-12-24h6v-6h-6v6zm0 12h6v-6h-6v6zm0 12h6v-6h-6v6zm-12-24h6v-6h-6v6zm0 12h6v-6h-6v6zm0 12h6v-6h-6v6z' fill='%234a7c3c' fill-opacity='0.05'/%3E%3C/svg%3E");
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Slab', serif;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--primary-green);
+}
+
+/* Common Elements */
+button {
+  cursor: pointer;
+  font-family: var(--font-primary);
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: all var(--transition-fast);
+  background-color: var(--white);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--secondary-green);
+  box-shadow: 0 0 0 3px rgba(74, 124, 60, 0.1);
+  outline: none;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.mt-1 {
+  margin-top: var(--spacing-xs);
+}
+.mt-2 {
+  margin-top: var(--spacing-sm);
+}
+.mt-3 {
+  margin-top: var(--spacing-md);
+}
+.mt-4 {
+  margin-top: var(--spacing-lg);
+}
+.mt-5 {
+  margin-top: var(--spacing-xl);
 }
 
 /* Enhanced Button Styles */
@@ -55,18 +175,21 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: transform var(--transition-fast), 
-              box-shadow var(--transition-fast),
-              background-color var(--transition-fast);
+  transition: all var(--transition-normal);
+  background-color: var(--primary-green);
+  color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
+  background-color: var(--secondary-green);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .btn:active {
   transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -75,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background-color: #1F3D14;
+  background-color: #1f3d14;
 }
 
 .btn-secondary {
@@ -84,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  background-color: #6F5B44;
+  background-color: #6f5b44;
 }
 
 /* Accessibility Enhancements */
@@ -112,4 +235,30 @@ h1, h2, h3, h4, h5, h6 {
 :focus-visible {
   outline: 3px solid var(--accent-color);
   outline-offset: 2px;
-} 
+}
+
+/* Card Styles */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Links */
+a {
+  color: var(--secondary-green);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-green);
+  text-decoration: underline;
+}

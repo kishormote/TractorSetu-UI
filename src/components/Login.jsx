@@ -1,23 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { loginUser } from "../services/Api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import '../styles/pages/Auth.css';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  // Check if user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+    
     try {
       const response = await loginUser({ username, password });
       localStorage.setItem("token", response.token);
-      alert("Login successful");
-      navigate("/dashboard");
+      // Store any other user data if needed
+      localStorage.setItem("user", JSON.stringify(response.user));
+      navigate("/");
     } catch (error) {
-      alert("Login failed");
+      setError("Invalid username or password");
     }
   };
 
@@ -30,6 +42,8 @@ const Login = () => {
         </div>
         
         <form className="auth-form" onSubmit={handleLogin}>
+          {error && <div className="error-message">{error}</div>}
+          
           <div className="form-group">
             <input 
               type="text" 
