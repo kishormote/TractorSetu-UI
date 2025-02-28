@@ -1,3 +1,14 @@
-@import "./index.css";
-
 /* Your app-wide styles using variables */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}

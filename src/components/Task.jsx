@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { createTask, getAllTasks, updateTasks } from "../services/Api";
+import { getOwnerId } from "../services/Api";
 import "../styles/components/Task.css";
 
 const Task = () => {
-  const ownerId = 1; // Static ID for testing
+  const ownerId = getOwnerId();
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState({ taskName: "", price: "" });
 
