@@ -12,7 +12,9 @@ import Signup from "./components/Signup";
 import UserDetails from "./components/UserDetails";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Task from "./components/Task";
-import WorkLogs from "./components/WorkLogs/WorkLogs";
+import WorkLogs from "./components/WorkLogs/ViewWorkLogs";
+import AddWorkLogForm from "./components/WorkLogs/AddWorkLogForm";
+
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {

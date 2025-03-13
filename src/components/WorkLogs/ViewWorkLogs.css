@@ -1,0 +1,166 @@
+/* Component styles */
+.work-logs-container {
+    padding: var(--spacing-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+}
+
+.work-logs-header {
+    margin-bottom: 2rem;
+}
+
+.work-logs-header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.work-logs-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.work-log-form-section {
+    background: var(--text-light);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    height: fit-content;
+}
+
+.farmers-list-section {
+    background: var(--text-light);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.add-worklog-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-normal);
+}
+
+.add-worklog-btn:hover {
+    background-color: var(--primary-color);
+    filter: brightness(0.9);
+}
+
+@media (max-width: 768px) {
+    .work-logs-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.work-logs-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.work-logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+}
+
+.work-logs-table th,
+.work-logs-table td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.work-logs-table th {
+    background-color: var(--primary-green);
+    color: var(--white);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.work-logs-table tr:hover {
+    background-color: var(--gray-50);
+}
+
+.text-right {
+    text-align: right;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.status.paid {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+.status.pending {
+    background-color: var(--warning);
+    color: var(--white);
+}
+
+.summary-row {
+    background-color: var(--gray-50);
+    font-weight: 500;
+}
+
+.summary-row td {
+    border-top: 2px solid var(--gray-300);
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.close-btn {
+    background-color: var(--gray-300);
+    color: var(--dark-brown);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.close-btn:hover {
+    background-color: var(--gray-400);
+    transform: translateY(-1px);
+}
+
+.add-log-btn {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.add-log-btn:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-1px);
+}
+
+.no-logs {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--gray-500);
+} 

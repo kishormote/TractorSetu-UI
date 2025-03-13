@@ -46,7 +46,7 @@
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -58,6 +58,15 @@
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.nav-link.active {
+  color: var(--white);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background-color: var(--white);
 }
 
 @media (max-width: 768px) {
@@ -85,4 +94,4 @@
   .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
-} 
+}

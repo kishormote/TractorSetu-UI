@@ -1,0 +1,141 @@
+.work-log-form-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.work-log-form-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Form layout and spacing */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: border-color var(--transition-normal);
+}
+
+.form-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.form-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  padding: 0 0.5rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-normal);
+  pointer-events: none;
+}
+
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
+  top: 0;
+  font-size: 0.875rem;
+  color: var(--primary-color);
+}
+
+/* Search results styling */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 0.25rem;
+}
+
+.search-result-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.search-result-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Update the form-actions class */
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: space-between; /* Changed from flex-end to space-between */
+  margin-top: var(--spacing-md);
+}
+
+/* Update the submit-btn and cancel-btn order and styles */
+.submit-btn {
+  order: 1; /* This will push it to the left */
+  background-color: var(--primary-green);
+  color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.cancel-btn {
+  order: 2; /* This will push it to the right */
+  background-color: var(--error); /* Using the error color variable for red */
+  color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.submit-btn:hover {
+  background-color: var(--dark-green);
+  transform: translateY(-1px);
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f; /* Darker shade of red */
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .work-log-form-card {
+    padding: 1.5rem;
+  }
+
+  form {
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+}
