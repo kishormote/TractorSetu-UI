@@ -8,6 +8,7 @@ import {
 } from "../services/Api";
 import AddWorkLogForm from "../components/WorkLogs/AddWorkLogForm";
 import ViewWorkLogs from "../components/WorkLogs/ViewWorkLogs";
+import { motion, AnimatePresence } from 'framer-motion';
 import "../styles/pages/Home.css";
 import { useNavigate } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ const Home = () => {
   const formRef = React.useRef(null);
   const logsRef = React.useRef(null);
   const [showNewLogForm, setShowNewLogForm] = useState(false);
+  const [showWorkLogModal, setShowWorkLogModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -119,6 +121,23 @@ const Home = () => {
     }, 100);
   };
 
+  const handleAddWorkLog = () => {
+    // Close any other open forms/modals
+    setShowAddForm(false);
+    setShowViewLogs(false);
+    setShowNewLogForm(false);
+    setShowWorkLogModal(true);
+  };
+
+  const handleWorkLogSuccess = () => {
+    setShowWorkLogModal(false);
+    // Refresh data
+    loadFarmersData();
+    // Show success message
+    setError('Work log added successfully');
+    setTimeout(() => setError(''), 3000);
+  };
+
   if (loading) {
     return (
       <div className="home-container">
@@ -147,10 +166,10 @@ const Home = () => {
             Create Task
           </button>
           <button 
-            className="create-log-btn"
-            onClick={handleCreateNewLog}
+            className="add-worklog-btn"
+            onClick={handleAddWorkLog}
           >
-            Create New Log
+            Add Work Log
           </button>
         </div>
       </div>
@@ -160,8 +179,6 @@ const Home = () => {
           <thead>
             <tr>
               <th>Farmer Name</th>
-              <th>Phone Number</th>
-              <th>Total Work Logs</th>
               <th>Due Amount</th>
               <th>Last Work Date</th>
               <th>Actions</th>
@@ -169,18 +186,13 @@ const Home = () => {
           </thead>
           <tbody>
             {farmers.map((farmer) => {
-              const farmerLogs = workLogs[farmer.id] || [];
-              const lastLog = farmerLogs[farmerLogs.length - 1];
-
               return (
                 <tr key={farmer.id}>
                   <td>{farmer.name || farmer.fullName || "N/A"}</td>
-                  <td>{farmer.contact || farmer.phoneNumber || "N/A"}</td>
-                  <td>{farmerLogs.length}</td>
-                  <td>₹{farmer.dueAmount || 0}</td>
+                  <td>₹{farmer.amountDue || farmer.dueAmount || 0}</td>
                   <td>
-                    {lastLog
-                      ? new Date(lastLog.date).toLocaleDateString()
+                    {farmer.lastWorkDate
+                      ? new Date(farmer.lastWorkDate).toLocaleDateString()
                       : "No logs"}
                   </td>
                   <td>
@@ -266,6 +278,34 @@ const Home = () => {
           />
         </div>
       )}
+
+      <AnimatePresence>
+        {showWorkLogModal && (
+          <div className="modal-overlay">
+            <motion.div 
+              className="modal"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+            >
+              <div className="modal-header">
+                <h2>Add New Work Log</h2>
+                <button 
+                  className="close-btn"
+                  onClick={() => setShowWorkLogModal(false)}
+                >
+                  ×
+                </button>
+              </div>
+              <AddWorkLogForm
+                onClose={() => setShowWorkLogModal(false)}
+                onSuccess={handleWorkLogSuccess}
+                isNewLog={true}
+              />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
