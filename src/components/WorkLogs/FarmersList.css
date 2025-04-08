@@ -1,0 +1,89 @@
+.farmers-list {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.farmers-list h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.farmers-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.farmer-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+.farmer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.farmer-info h3 {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.due-amount {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.view-logs-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-logs-btn:hover {
+    background-color: #6F5B44;
+}
+
+.logs-container {
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.logs-table th,
+.logs-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logs-table th {
+    background-color: var(--bg-primary);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.logs-table tr:hover {
+    background-color: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+    .logs-table {
+        display: block;
+        overflow-x: auto;
+    }
+} 
